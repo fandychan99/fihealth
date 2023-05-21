@@ -64,185 +64,195 @@
             </div>
         </div>
 
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 row-cols-xxl-4">
-            <div class="col">
-                <div class="card radius-10 overflow-hidden">
-                    <div class="card-body" style="position: relative;">
-                        <div class="d-flex align-items-center mb-2">
-                            <div class="">
-                                <p class="mb-1">Heart Rate</p>
-                                <h4 class="mb-0"><?= number_format($data_user->heartrate); ?> bpm</h4>
+        <?php
+        if ($this->session->userdata("role") != 1) {
+        ?>
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 row-cols-xxl-4">
+                <div class="col">
+                    <div class="card radius-10 overflow-hidden">
+                        <div class="card-body" style="position: relative;">
+                            <div class="d-flex align-items-center mb-2">
+                                <div class="">
+                                    <p class="mb-1">Heart Rate</p>
+                                    <h4 class="mb-0"><?= number_format($data_user->heartrate); ?> bpm</h4>
+                                </div>
+                                <div class="ms-auto fs-4 text-primary">
+                                </div>
                             </div>
-                            <div class="ms-auto fs-4 text-primary">
+                            <div style="text-align: left; width: 288px; height: 90px; padding-left:40%">
+                                <img src="<?= base_url() ?>assets\images\heartrate.png" alt="">
                             </div>
                         </div>
-                        <div style="text-align: left; width: 288px; height: 90px; padding-left:40%">
-                            <img src="<?= base_url() ?>assets\images\heartrate.png" alt="">
-                        </div>
-                    </div>
 
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card radius-10 overflow-hidden">
+                        <div class="card-body" style="position: relative;">
+                            <div class="d-flex align-items-center mb-2">
+                                <div class="">
+                                    <p class="mb-1">Blood Pressure </p>
+                                    <h4 class="mb-0"><?= number_format($data_user->bloodpressure); ?> mmHg</h4>
+                                </div>
+                                <div class="ms-auto fs-4 text-success">
+                                </div>
+                            </div>
+
+                            <div style="text-align: left; width: 288px; height: 90px; padding-left:40%">
+                                <img src="<?= base_url() ?>assets\images\bloodpressure.png" alt="">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card radius-10 overflow-hidden">
+                        <div class="card-body" style="position: relative;">
+                            <div class="d-flex align-items-center mb-2">
+                                <div class="">
+                                    <p class="mb-1">Cholesterol</p>
+                                    <h4 class="mb-0"><?= number_format($data_user->cholesterol); ?> mg</h4>
+                                </div>
+                                <div class="ms-auto fs-4 text-orange">
+                                    <i class="bi bi-bar-chart-line-fill"></i>
+                                </div>
+                            </div>
+                            <div style="text-align: left; width: 288px; height: 90px; padding-left:40%">
+                                <img src="<?= base_url() ?>assets\images\chole.png" alt="">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card radius-10 overflow-hidden">
+                        <div class="card-body" style="position: relative;">
+                            <div class="d-flex align-items-center mb-2">
+                                <div class="">
+                                    <p class="mb-1">Bloodglucose</p>
+                                    <h4 class="mb-0"><?= number_format($data_user->bloodglucose); ?> mg/dL</h4>
+                                </div>
+                                <div class="ms-auto fs-4 text-orange">
+                                    <i class="bi bi-bar-chart-line-fill"></i>
+                                </div>
+                            </div>
+                            <div style="text-align: left; width: 288px; height: 90px; padding-left:40%">
+                                <img src="<?= base_url() ?>assets\images\bloodglucose.png" alt="">
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card radius-10 overflow-hidden">
-                    <div class="card-body" style="position: relative;">
-                        <div class="d-flex align-items-center mb-2">
-                            <div class="">
-                                <p class="mb-1">Blood Pressure </p>
-                                <h4 class="mb-0"><?= number_format($data_user->bloodpressure); ?> mmHg</h4>
-                            </div>
-                            <div class="ms-auto fs-4 text-success">
-                            </div>
-                        </div>
-
-                        <div style="text-align: left; width: 288px; height: 90px; padding-left:40%">
-                            <img src="<?= base_url() ?>assets\images\bloodpressure.png" alt="">
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="col">
-                <div class="card radius-10 overflow-hidden">
-                    <div class="card-body" style="position: relative;">
-                        <div class="d-flex align-items-center mb-2">
-                            <div class="">
-                                <p class="mb-1">Cholesterol</p>
-                                <h4 class="mb-0"><?= number_format($data_user->cholesterol); ?> mg</h4>
-                            </div>
-                            <div class="ms-auto fs-4 text-orange">
-                                <i class="bi bi-bar-chart-line-fill"></i>
-                            </div>
-                        </div>
-                        <div style="text-align: left; width: 288px; height: 90px; padding-left:40%">
-                            <img src="<?= base_url() ?>assets\images\chole.png" alt="">
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="col">
-                <div class="card radius-10 overflow-hidden">
-                    <div class="card-body" style="position: relative;">
-                        <div class="d-flex align-items-center mb-2">
-                            <div class="">
-                                <p class="mb-1">Bloodglucose</p>
-                                <h4 class="mb-0"><?= number_format($data_user->bloodglucose); ?> mg/dL</h4>
-                            </div>
-                            <div class="ms-auto fs-4 text-orange">
-                                <i class="bi bi-bar-chart-line-fill"></i>
-                            </div>
-                        </div>
-                        <div style="text-align: left; width: 288px; height: 90px; padding-left:40%">
-                            <img src="<?= base_url() ?>assets\images\bloodglucose.png" alt="">
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
+        <?php
+        }
+        ?>
     </div>
 </div>
 
-
-<!-- chart -->
-<div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 row-cols-xxl-4">
-    <div class="col">
-        <div class="card radius-10 overflow-hidden">
-            <div class="card-body">
-                <div class="d-flex align-items-center mb-2">
-                    <div class="">
-                        <p class="mb-1">Heart Rate</p>
+<?php
+if ($this->session->userdata("role") != 1) {
+?>
+    <!-- chart -->
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-2 row-cols-xxl-4">
+        <div class="col">
+            <div class="card radius-10 overflow-hidden">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-2">
+                        <div class="">
+                            <p class="mb-1">Heart Rate</p>
+                        </div>
+                        <div class="ms-auto fs-4 text-primary">
+                        </div>
                     </div>
-                    <div class="ms-auto fs-4 text-primary">
-                    </div>
+                    <div id="chart1"></div>
                 </div>
-                <div id="chart1"></div>
-            </div>
 
+            </div>
         </div>
-    </div>
-    <div class="col">
-        <div class="card radius-10 overflow-hidden">
-            <div class="card-body">
-                <div class="d-flex align-items-center mb-2">
-                    <div class="">
-                        <p class="mb-1">Blood Pressure</p>
+        <div class="col">
+            <div class="card radius-10 overflow-hidden">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-2">
+                        <div class="">
+                            <p class="mb-1">Blood Pressure</p>
+                        </div>
+                        <div class="ms-auto fs-4 text-success">
+                        </div>
                     </div>
-                    <div class="ms-auto fs-4 text-success">
-                    </div>
+                    <div id="chart2"></div>
                 </div>
-                <div id="chart2"></div>
-            </div>
 
+            </div>
         </div>
-    </div>
-    <div class="col">
-        <div class="card radius-10 overflow-hidden">
-            <div class="card-body">
-                <div class="d-flex align-items-center mb-2">
-                    <div class="">
-                        <p class="mb-1">Cholesterol</p>
+        <div class="col">
+            <div class="card radius-10 overflow-hidden">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-2">
+                        <div class="">
+                            <p class="mb-1">Cholesterol</p>
+                        </div>
+                        <div class="ms-auto fs-4 text-purple">
+                        </div>
                     </div>
-                    <div class="ms-auto fs-4 text-purple">
-                    </div>
+                    <div id="chart3"></div>
                 </div>
-                <div id="chart3"></div>
-            </div>
 
+            </div>
         </div>
-    </div>
-    <div class="col">
-        <div class="card radius-10 overflow-hidden">
-            <div class="card-body">
-                <div class="d-flex align-items-center mb-2">
-                    <div class="">
-                        <p class="mb-1">Bloodglucose</p>
+        <div class="col">
+            <div class="card radius-10 overflow-hidden">
+                <div class="card-body">
+                    <div class="d-flex align-items-center mb-2">
+                        <div class="">
+                            <p class="mb-1">Bloodglucose</p>
+                        </div>
+                        <div class="ms-auto fs-4 text-orange">
+                        </div>
                     </div>
-                    <div class="ms-auto fs-4 text-orange">
-                    </div>
+                    <div id="chart4"></div>
                 </div>
-                <div id="chart4"></div>
+
             </div>
-
         </div>
-    </div>
-</div><!--end row-->
-<!-- chart -->
+    </div><!--end row-->
+    <!-- chart -->
 
-<!-- History Diagnoese -->
-<div class="row">
-    <div class="col-xl-7 mx-auto">
-        <h6 class="mb-0 text-uppercase">History Diagnose</h6>
-        <hr>
-        <div class="card">
-            <div class="card-body">
-                <table class="table align-middle mb-0">
-                    <thead class="table-light">
-                        <tr>
-                            <th>Consult Date</th>
-                            <th>Doctor</th>
-                            <th>View Detail</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        foreach ($history_consul->result() as $r) {
-                            echo '<tr>
+    <!-- History Diagnoese -->
+    <div class="row">
+        <div class="col-xl-7 mx-auto">
+            <h6 class="mb-0 text-uppercase">History Diagnose</h6>
+            <hr>
+            <div class="card">
+                <div class="card-body">
+                    <table class="table align-middle mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Consult Date</th>
+                                <th>Doctor</th>
+                                <th>View Detail</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            foreach ($history_consul->result() as $r) {
+                                echo '<tr>
                                     <td>' . date("l, d M Y", strtotime($r->date_consul)) . '</td>
-                                    <td>'.$r->nama_dokter.'</td>
+                                    <td>' . $r->nama_dokter . '</td>
                                     <td><a href="#"  data-bs-toggle="modal" data-bs-target="#exampleLargeModal3" style="cursor: pointer; color:orange" onclick="get_history(\'' . encrypt_url($r->id) . '\')"><i class="bi bi-eye"></i></a></td>
                                </tr>';
-                        }
-                        ?>
-                    </tbody>
-                </table>
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<!-- History Diagnoese -->
-
+    <!-- History Diagnoese -->
+<?php
+}
+?>
 <!-- modal -->
 <div class="modal fade" id="exampleLargeModal3" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -344,23 +354,28 @@
                                         <label class="form-label">Height</label>
                                         <input type="text" class="form-control" value="<?= number_format($data_user->height); ?>" name="height">
                                     </div>
-                                    <div class="col-6">
-                                        <label class="form-label">Blood Pressure</label>
-                                        <input type="text" class="form-control" value="<?= number_format($data_user->bloodpressure); ?>" name="bloodpressure">
-                                    </div>
-                                    <div class="col-6">
-                                        <label class="form-label">Heart Rate</label>
-                                        <input type="text" class="form-control" value="<?= number_format($data_user->heartrate); ?>" name="heartrate">
-                                    </div>
-                                    <div class="col-6">
-                                        <label class="form-label">Cholesterol</label>
-                                        <input type="text" class="form-control" value="<?= number_format($data_user->cholesterol); ?>" name="cholesterol">
-                                    </div>
-                                    <div class="col-6">
-                                        <label class="form-label">Bloodglucose</label>
-                                        <input type="text" class="form-control" value="<?= number_format($data_user->bloodglucose); ?>" name="bloodglucose">
-                                    </div>
-
+                                    <?php
+                                    if ($this->session->userdata("role") != 1) {
+                                    ?>
+                                        <div class="col-6">
+                                            <label class="form-label">Blood Pressure</label>
+                                            <input type="text" class="form-control" value="<?= number_format($data_user->bloodpressure); ?>" name="bloodpressure">
+                                        </div>
+                                        <div class="col-6">
+                                            <label class="form-label">Heart Rate</label>
+                                            <input type="text" class="form-control" value="<?= number_format($data_user->heartrate); ?>" name="heartrate">
+                                        </div>
+                                        <div class="col-6">
+                                            <label class="form-label">Cholesterol</label>
+                                            <input type="text" class="form-control" value="<?= number_format($data_user->cholesterol); ?>" name="cholesterol">
+                                        </div>
+                                        <div class="col-6">
+                                            <label class="form-label">Bloodglucose</label>
+                                            <input type="text" class="form-control" value="<?= number_format($data_user->bloodglucose); ?>" name="bloodglucose">
+                                        </div>
+                                    <?php
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -711,7 +726,7 @@
 </script>
 
 <script>
-    function get_history($id){
+    function get_history($id) {
         $url = '<?php echo base_url(); ?>C_Profile/get_consul_byid?id=' + $id;
         console.log($url);
         $.ajax({
@@ -722,5 +737,4 @@
             }
         });
     }
-    
 </script>
