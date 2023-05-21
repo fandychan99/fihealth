@@ -78,8 +78,15 @@ class C_User extends CI_Controller
     public function delete()
     {
         $id = decrypt_url($this->input->get("id"));
-        $query = "DELETE FROM utl_user where userid = '$id'";
+        $query = "DELETE FROM utl_user where user_id = '$id'";
 
-        return $this->db->query($query);
+        // return $this->db->query($query);
+        $hapus = $this->db->query($query);
+
+        if($hapus){
+            redirect("C_User?msg=USer Has Been Deleted ");
+        }else{
+            redirect("C_User?msg=User Failed to Deleted ".$id);
+        }
     }
 }

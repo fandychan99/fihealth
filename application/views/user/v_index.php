@@ -105,9 +105,15 @@
                                         <td>$item->name</td>
                                         <td>$item->role</td>
                                         <td>$access</td>
-                                        <td>$status</td>
-                                        <td></td>
-                                    </tr>";
+                                        <td>$status</td>";
+                                        
+                                    ?><td>
+                                    <div class="d-flex align-items-center gap-3 fs-6">
+                                        <a class="text-warning" onclick="return confirm('Sure to Edit it ? ')" href="<?= base_url() ?>C_User?id=<?= encrypt_url($item->user_id) ?>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Edit info" aria-label="Edit"><i class="bi bi-pencil-fill"></i></a>
+                                        <a class="text-danger" onclick="return confirm('Sure to Deleted it ? ')" href="<?= base_url() ?>C_User/delete?id=<?= encrypt_url($item->user_id) ?>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Delete" aria-label="Delete"><i class="bi bi-trash-fill"></i></a>
+                                    </div></td>
+                                    <?php
+                                    echo "</tr>";
                                 }
                             
                             ?>
