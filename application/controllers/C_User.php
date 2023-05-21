@@ -22,7 +22,8 @@ class C_User extends CI_Controller
 
     public function index()
     {
-        
+        $id = $this->input->get("id");
+        $data["userby"] = $this->M_User->get_by_id(decrypt_url($id));
         $data['_role'] = $this->M_Role->get_role_for_select();
         $data['_user'] = $this->M_User->get_all();
         
