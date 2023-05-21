@@ -16,7 +16,7 @@ class M_Article extends CI_Model
 
     function get_by_id($id){
         $query = "SELECT * FROM trn_article where id = '$id' ";
-
+        
         return $this->db->query($query);
     }
 
@@ -26,8 +26,14 @@ class M_Article extends CI_Model
         return $this->db->query($query);
     }
 
-    function simpan($data){
-        return $this->db->insert("trn_article", $data);
+    function simpan($data, $id){
+        if(empty($id)){
+            return $this->db->insert("trn_article", $data);
+        }
+        else{
+            $this->db->where("id", $id);
+            return $this->db->update("trn_article", $data);
+        }
     }
 
 

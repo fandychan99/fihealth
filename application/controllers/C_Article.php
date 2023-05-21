@@ -28,7 +28,8 @@ class C_Article extends CI_Controller
     }
 
     function add_article(){
-        $data["art"] = 1;
+        $id = $this->input->get("id");
+        $data["art"] = $this->M_Article->get_by_id(decrypt_url($id))->row();
         $this->template->display("article/v_add", $data);
     }
 
@@ -39,15 +40,34 @@ class C_Article extends CI_Controller
         $this->template->display("article/v_detail", $data);
     }
 
+    function delete_article(){
+        if($this->session->userdata('role') != 1){
+            redirect("C_Article?msg=Article Failed to Deleted ");
+        }
+
+        $id = decrypt_url($this->input->get("id"));
+
+        $query = "DELETE FROM trn_article where id = '$id'";
+
+        $hapus = $this->db->query($query);
+
+        if($hapus){
+            redirect("C_Article?msg=Article Has Been Deleted ");
+        }else{
+            redirect("C_Article?msg=Article Failed to Deleted ");
+        }
+    }
+
     function simpan_article(){
         $title = $this->input->post("title");
         $highlight = $this->input->post("highlight");
         $content = $this->input->post("contents");
         $gambar = $this->input->post("gambar");
+        $id = $this->input->post("id");
 
         $data = array("title" => $title, "part_content" => $highlight , "content" =>  $content, "create_by" =>$this->session->userdata('userid'), "image" => $gambar);
 
-        $this->M_Article->simpan($data);
+        $this->M_Article->simpan($data, $id);
 
         redirect('C_Article/index');
 

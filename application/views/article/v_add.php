@@ -17,18 +17,20 @@
 
                 </div>
                 <hr />
+                
                 <div class="row mb-3">
                     <label for="inputConfirmPassword2" class="col-form-label">Title*</label>
-                    <input type="text" class="form-control" id="title" name="title" placeholder="Article Title" required>
+                    <input type="text" class="form-control" id="title" name="title" placeholder="Article Title" value="<?=(!empty($art)) ? $art->title : ""; ?>" required>
                     <input type="text" class="form-control" id="gambar" name="gambar" hidden>
+                    <input type="text" class="form-control" id="id" name="id" value="<?=(!empty($this->input->get('id')) ? decrypt_url($this->input->get('id')) : 0 )?>" hidden>
                 </div>
                 <div class="row mb-3">
                     <label for="inputConfirmPassword2" class="col-form-label">Highlight*</label>
-                    <textarea name="highlight" id="highlight" class="form-control" rows="3"></textarea>
+                    <textarea name="highlight" id="highlight" class="form-control" rows="3"><?=(!empty($art)) ? $art->part_content : ""; ?></textarea>
                 </div>
                 <div class="row mb-3">
                     <label for="inputConfirmPassword2" class="col-form-label">Content*</label>
-                    <textarea name="contents" id="summernote"></textarea>
+                    <textarea name="contents" id="summernote"><?=(!empty($art)) ? $art->content : ""; ?></textarea>
                 </div>
 
             </div>
