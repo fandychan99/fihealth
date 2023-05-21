@@ -231,7 +231,7 @@
                             echo '<tr>
                                     <td>' . date("l, d M Y", strtotime($r->date_consul)) . '</td>
                                     <td>'.$r->nama_dokter.'</td>
-                                    <td><a href="#"  data-bs-toggle="modal" data-bs-target="#exampleLargeModal3" style="cursor: pointer; color:orange" onclick="get_history(\'' . $r->id . '\')"><i class="bi bi-eye"></i></a></td>
+                                    <td><a href="#"  data-bs-toggle="modal" data-bs-target="#exampleLargeModal3" style="cursor: pointer; color:orange" onclick="get_history(\'' . encrypt_url($r->id) . '\')"><i class="bi bi-eye"></i></a></td>
                                </tr>';
                         }
                         ?>
@@ -245,7 +245,7 @@
 
 <!-- modal -->
 <div class="modal fade" id="exampleLargeModal3" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-md">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title"><i class="bi bi-person"></i> Diagnose Result</h5>
@@ -254,6 +254,7 @@
             <div class="modal-body">
                 <div class="card shadow-sm border-0">
                     <div class="card-body">
+                        <div id="isi_disini"></div>
                     </div>
                 </div>
             </div>
@@ -711,6 +712,15 @@
 
 <script>
     function get_history($id){
-        
+        $url = '<?php echo base_url(); ?>C_Profile/get_consul_byid?id=' + $id;
+        console.log($url);
+        $.ajax({
+            type: 'GET',
+            url: $url,
+            success: function(val) {
+                $('#isi_disini').html(val);
+            }
+        });
     }
+    
 </script>

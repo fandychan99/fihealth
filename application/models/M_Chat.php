@@ -45,6 +45,6 @@ class M_Chat extends CI_Model
     function get_consul_byid($id){
         $query = "SELECT * FROM vw_diagnosa WHERE id = '$id'";
 
-        return $this->db->query($query);
+        return $this->db->query($query)->row();
     }
 }
