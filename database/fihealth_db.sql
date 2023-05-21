@@ -44,7 +44,7 @@ CREATE TABLE `trn_appointment` (
 
 LOCK TABLES `trn_appointment` WRITE;
 /*!40000 ALTER TABLE `trn_appointment` DISABLE KEYS */;
-INSERT INTO `trn_appointment` VALUES (1,'admin','fandy',2,'2023-05-18',2,'admin','2023-05-16 07:08:51',NULL,NULL,''),(2,'admin','fandy',1,'2023-05-21',1,'admin','2023-05-18 22:13:39',NULL,NULL,''),(3,'admin','fandy',8,'2023-05-18',1,'admin','2023-05-18 22:15:29',NULL,NULL,''),(4,'user_tes@gmail.com','fandy',9,'2023-05-22',1,'user_tes@gmail.com','2023-05-18 22:44:09',NULL,NULL,''),(5,'user_tes@gmail.com','fandy',13,'2023-05-18',2,'user_tes@gmail.com','2023-05-18 22:47:05',NULL,NULL,''),(6,'admin','',10,'0000-00-00',1,'admin','2023-05-20 14:50:33',NULL,NULL,''),(7,'admin','fandy',10,'2023-05-22',1,'admin','2023-05-20 15:28:15',NULL,NULL,'');
+INSERT INTO `trn_appointment` VALUES (1,'admin','fandy',2,'2023-05-18',2,'admin','2023-05-16 07:08:51',NULL,NULL,''),(2,'admin','fandy',1,'2023-05-21',3,'admin','2023-05-18 22:13:39',NULL,NULL,''),(3,'admin','fandy',8,'2023-05-18',4,'admin','2023-05-18 22:15:29',NULL,NULL,''),(4,'user_tes@gmail.com','fandy',9,'2023-05-22',2,'user_tes@gmail.com','2023-05-18 22:44:09',NULL,NULL,''),(5,'user_tes@gmail.com','fandy',13,'2023-05-18',2,'user_tes@gmail.com','2023-05-18 22:47:05',NULL,NULL,''),(6,'admin','',10,'0000-00-00',1,'admin','2023-05-20 14:50:33',NULL,NULL,''),(7,'admin','fandy',10,'2023-05-22',2,'admin','2023-05-20 15:28:15',NULL,NULL,'');
 /*!40000 ALTER TABLE `trn_appointment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -128,7 +128,7 @@ CREATE TABLE `trn_chat` (
   `chat_text` varchar(1000) DEFAULT NULL,
   `send_date` datetime DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -137,7 +137,7 @@ CREATE TABLE `trn_chat` (
 
 LOCK TABLES `trn_chat` WRITE;
 /*!40000 ALTER TABLE `trn_chat` DISABLE KEYS */;
-INSERT INTO `trn_chat` VALUES (3,1,'admin','tes','2023-05-18 02:03:16'),(4,1,'fandy','tes 2','2023-05-18 02:03:22'),(5,1,'fandy','Ada yang bisa saya bantu','2023-05-18 02:19:02'),(6,1,'admin','minta uang dok','2023-05-18 02:19:10'),(7,1,'fandy',' rontok','2023-05-18 02:19:55'),(8,1,'admin','dok','2023-05-18 02:20:06'),(9,1,'admin','sukak mu la ','2023-05-18 02:26:51'),(10,1,'admin','tes lagi bos','2023-05-18 02:27:56'),(11,1,'fandy','apa bos','2023-05-18 02:28:49'),(12,1,'admin','santai la bos','2023-05-18 02:28:56'),(13,1,'admin','ok la bos','2023-05-18 02:29:06'),(14,1,'fandy','epuluh','2023-05-18 02:29:17'),(15,1,'fandy','makan apa kita','2023-05-18 02:29:26'),(16,1,'admin','nasi aja bos ku','2023-05-18 02:29:32'),(17,1,'fandy','mana la enak bos, kasi la lauk sikit','2023-05-18 02:29:45'),(18,1,'admin','tes','2023-05-18 11:11:39'),(19,1,'fandy','testing','2023-05-18 11:11:48'),(20,5,'user_tes@gmail.com','selamat malam dok','2023-05-18 22:56:24'),(21,5,'fandy','selamat malam juga','2023-05-18 22:56:38'),(22,5,'fandy','ada yang bisa saya bantu','2023-05-18 22:56:51'),(23,5,'user_tes@gmail.com','tes','2023-05-18 22:57:20');
+INSERT INTO `trn_chat` VALUES (3,1,'admin','tes','2023-05-18 02:03:16'),(4,1,'fandy','tes 2','2023-05-18 02:03:22'),(5,1,'fandy','Ada yang bisa saya bantu','2023-05-18 02:19:02'),(6,1,'admin','minta uang dok','2023-05-18 02:19:10'),(7,1,'fandy',' rontok','2023-05-18 02:19:55'),(8,1,'admin','dok','2023-05-18 02:20:06'),(9,1,'admin','sukak mu la ','2023-05-18 02:26:51'),(10,1,'admin','tes lagi bos','2023-05-18 02:27:56'),(11,1,'fandy','apa bos','2023-05-18 02:28:49'),(12,1,'admin','santai la bos','2023-05-18 02:28:56'),(13,1,'admin','ok la bos','2023-05-18 02:29:06'),(14,1,'fandy','epuluh','2023-05-18 02:29:17'),(15,1,'fandy','makan apa kita','2023-05-18 02:29:26'),(16,1,'admin','nasi aja bos ku','2023-05-18 02:29:32'),(17,1,'fandy','mana la enak bos, kasi la lauk sikit','2023-05-18 02:29:45'),(18,1,'admin','tes','2023-05-18 11:11:39'),(19,1,'fandy','testing','2023-05-18 11:11:48'),(20,5,'user_tes@gmail.com','selamat malam dok','2023-05-18 22:56:24'),(21,5,'fandy','selamat malam juga','2023-05-18 22:56:38'),(22,5,'fandy','ada yang bisa saya bantu','2023-05-18 22:56:51'),(23,5,'user_tes@gmail.com','tes','2023-05-18 22:57:20'),(24,2,'fandy','tes','2023-05-21 15:17:50');
 /*!40000 ALTER TABLE `trn_chat` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -166,6 +166,86 @@ LOCK TABLES `trn_login_history` WRITE;
 /*!40000 ALTER TABLE `trn_login_history` DISABLE KEYS */;
 /*!40000 ALTER TABLE `trn_login_history` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `trn_toko`
+--
+
+DROP TABLE IF EXISTS `trn_toko`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `trn_toko` (
+  `id` int(11) NOT NULL,
+  `toko_name` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `contact_person` varchar(255) DEFAULT NULL,
+  `latitude` double DEFAULT NULL,
+  `longtitude` double DEFAULT NULL,
+  `description` longtext DEFAULT NULL,
+  `created_by` varchar(255) DEFAULT NULL,
+  `created_date` datetime DEFAULT NULL,
+  `updated_by` varchar(50) DEFAULT NULL,
+  `updated_date` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `trn_toko`
+--
+
+LOCK TABLES `trn_toko` WRITE;
+/*!40000 ALTER TABLE `trn_toko` DISABLE KEYS */;
+/*!40000 ALTER TABLE `trn_toko` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `utl_diagnosa_patient`
+--
+
+DROP TABLE IF EXISTS `utl_diagnosa_patient`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `utl_diagnosa_patient` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_appointment` int(11) DEFAULT NULL,
+  `userid` varchar(50) DEFAULT NULL,
+  `date_consul` datetime DEFAULT NULL,
+  `diagnose` longtext DEFAULT NULL,
+  `recipe` longtext DEFAULT NULL,
+  `therapy` longtext DEFAULT NULL,
+  `created_by` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `craeted_date` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `utl_diagnosa_patient`
+--
+
+LOCK TABLES `utl_diagnosa_patient` WRITE;
+/*!40000 ALTER TABLE `utl_diagnosa_patient` DISABLE KEYS */;
+INSERT INTO `utl_diagnosa_patient` VALUES (1,NULL,'admin','2023-05-21 00:00:00','tes ','tes','tes','fandy','2023-05-21 13:51:18'),(2,2,'admin','2023-05-21 00:00:00','tes','tes','tes','fandy','2023-05-21 13:53:59');
+/*!40000 ALTER TABLE `utl_diagnosa_patient` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `diagnosa_after_insert` AFTER INSERT ON `utl_diagnosa_patient` FOR EACH ROW BEGIN
+	UPDATE trn_appointment SET `status` = 3 where id = NEW.id_appointment;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `utl_jadwal_dokter`
@@ -232,7 +312,7 @@ CREATE TABLE `utl_menu` (
 
 LOCK TABLES `utl_menu` WRITE;
 /*!40000 ALTER TABLE `utl_menu` DISABLE KEYS */;
-INSERT INTO `utl_menu` VALUES (1,'Utility','#','bi bi-gear','',10,1,0,'\0',NULL,NULL,NULL,NULL,NULL),(2,'Management User','C_User',NULL,'\0',1,2,1,'\0',NULL,NULL,NULL,NULL,NULL),(5,'Access Menu','C_Menu_Access',NULL,'\0',4,2,1,'\0',NULL,NULL,NULL,NULL,NULL),(10,'Profile','C_Profile','bx bx-user','\0',1,1,0,'\0',NULL,NULL,NULL,NULL,NULL),(11,'Appointment','C_Appointment','fadeIn animated bx bx-book-add','\0',3,1,0,'\0',NULL,NULL,NULL,NULL,NULL),(13,'Chats / Consultation','C_Chat','bi bi-chat','\0',4,1,0,'\0',NULL,NULL,NULL,NULL,NULL),(14,'Article','C_Article','bi bi-newspaper','\0',5,1,0,'\0',NULL,NULL,NULL,NULL,NULL),(15,'Schedule Doctor','C_Schedule',NULL,'\0',2,1,1,'\0',NULL,NULL,NULL,NULL,NULL),(16,'Medical wellness marketplace ','https://www.google.com/maps/search/apotek','bi bi-map','\0',6,1,0,'\0',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `utl_menu` VALUES (1,'Utility','#','bi bi-gear','',10,1,0,'\0',NULL,NULL,NULL,NULL,NULL),(2,'Management User','C_User',NULL,'\0',1,2,1,'\0',NULL,NULL,NULL,NULL,NULL),(5,'Access Menu','C_Menu_Access',NULL,'\0',4,2,1,'\0',NULL,NULL,NULL,NULL,NULL),(10,'Profile','C_Profile','bx bx-user','\0',1,1,0,'\0',NULL,NULL,NULL,NULL,NULL),(11,'Appointment','C_Appointment','fadeIn animated bx bx-book-add','\0',3,1,0,'\0',NULL,NULL,NULL,NULL,NULL),(13,'Chats / Consultation','C_Chat','bi bi-chat','\0',4,1,0,'\0',NULL,NULL,NULL,NULL,NULL),(14,'Article','C_Article','bi bi-newspaper','\0',5,1,0,'\0',NULL,NULL,NULL,NULL,NULL),(15,'Schedule Doctor','C_Schedule','bi bi-calendar','\0',2,1,0,'\0',NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `utl_menu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -269,7 +349,7 @@ CREATE TABLE `utl_menu_access` (
 
 LOCK TABLES `utl_menu_access` WRITE;
 /*!40000 ALTER TABLE `utl_menu_access` DISABLE KEYS */;
-INSERT INTO `utl_menu_access` VALUES (192,10,4,'\0','\0','\0','\0','\0','0','0000-00-00 00:00:00','0'),(193,11,4,'\0','\0','\0','\0','\0','0','0000-00-00 00:00:00','0'),(194,13,4,'\0','\0','\0','\0','\0','0','0000-00-00 00:00:00','0'),(195,14,4,'\0','\0','\0','\0','\0','0','0000-00-00 00:00:00','0'),(196,16,4,'\0','\0','\0','\0','\0','0','0000-00-00 00:00:00','0'),(197,1,1,'','\0','\0','\0','\0','0','0000-00-00 00:00:00','0'),(198,2,1,'','','\0','\0','\0','0','0000-00-00 00:00:00','0'),(199,5,1,'','','\0','\0','\0','0','0000-00-00 00:00:00','0'),(200,10,1,'\0','\0','\0','\0','\0','0','0000-00-00 00:00:00','0'),(201,11,1,'\0','\0','\0','\0','\0','0','0000-00-00 00:00:00','0'),(202,13,1,'\0','\0','\0','\0','\0','0','0000-00-00 00:00:00','0'),(203,14,1,'\0','\0','\0','\0','\0','0','0000-00-00 00:00:00','0'),(204,16,1,'\0','\0','\0','\0','\0','0','0000-00-00 00:00:00','0'),(212,1,2,'\0','\0','\0','\0','\0','0','0000-00-00 00:00:00','0'),(213,15,2,'\0','\0','\0','\0','\0','0','0000-00-00 00:00:00','0'),(214,10,2,'\0','\0','\0','\0','\0','0','0000-00-00 00:00:00','0'),(215,11,2,'\0','\0','\0','\0','\0','0','0000-00-00 00:00:00','0'),(216,13,2,'\0','\0','\0','\0','\0','0','0000-00-00 00:00:00','0'),(217,14,2,'\0','\0','\0','\0','\0','0','0000-00-00 00:00:00','0'),(218,16,2,'\0','\0','\0','\0','\0','0','0000-00-00 00:00:00','0');
+INSERT INTO `utl_menu_access` VALUES (192,10,4,'\0','\0','\0','\0','\0','0','0000-00-00 00:00:00','0'),(193,11,4,'\0','\0','\0','\0','\0','0','0000-00-00 00:00:00','0'),(194,13,4,'\0','\0','\0','\0','\0','0','0000-00-00 00:00:00','0'),(195,14,4,'\0','\0','\0','\0','\0','0','0000-00-00 00:00:00','0'),(197,1,1,'','\0','\0','\0','\0','0','0000-00-00 00:00:00','0'),(198,2,1,'','','\0','\0','\0','0','0000-00-00 00:00:00','0'),(199,5,1,'','','\0','\0','\0','0','0000-00-00 00:00:00','0'),(200,10,1,'\0','\0','\0','\0','\0','0','0000-00-00 00:00:00','0'),(201,11,1,'\0','\0','\0','\0','\0','0','0000-00-00 00:00:00','0'),(202,13,1,'\0','\0','\0','\0','\0','0','0000-00-00 00:00:00','0'),(203,14,1,'\0','\0','\0','\0','\0','0','0000-00-00 00:00:00','0'),(212,1,2,'\0','\0','\0','\0','\0','0','0000-00-00 00:00:00','0'),(213,15,2,'\0','\0','\0','\0','\0','0','0000-00-00 00:00:00','0'),(214,10,2,'\0','\0','\0','\0','\0','0','0000-00-00 00:00:00','0'),(215,11,2,'\0','\0','\0','\0','\0','0','0000-00-00 00:00:00','0'),(216,13,2,'\0','\0','\0','\0','\0','0','0000-00-00 00:00:00','0'),(217,14,2,'\0','\0','\0','\0','\0','0','0000-00-00 00:00:00','0');
 /*!40000 ALTER TABLE `utl_menu_access` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -366,7 +446,7 @@ CREATE TABLE `utl_user` (
 
 LOCK TABLES `utl_user` WRITE;
 /*!40000 ALTER TABLE `utl_user` DISABLE KEYS */;
-INSERT INTO `utl_user` VALUES ('admin','$2y$10$mfs2CWOcuff7.cQtm1Qq.uVckfLQQjiuehUPmp4QJqN7vjKfxFn0i','Admin Ganteng','Notes_210913_182216_5d1-750x5361.png',1,'\0','','\0','\0','\0','','0000-00-00 00:00:00','admin','2023-05-20 19:00:54',''),('chaniago','$2y$10$2vWqg89Fh6YWYsG.02/VzeZzUrWv4PWawCN9quhkLYv323hBS3iVq','tes',NULL,4,'\0','','\0','\0','\0','','0000-00-00 00:00:00',NULL,NULL,''),('fandy','$2y$10$I0ngjPZgE9V4ivSoo9nDjeoucwGDle0.ZUOTJHbre3oJjK16O.apu','Fandy Chaniago',NULL,2,'\0','','\0','\0','\0','','0000-00-00 00:00:00',NULL,NULL,''),('fatih99@gmail.com','$2y$10$gixhjMg1YR4AHMG0hXQpM.Albq/SjHd353VJc2moA4g3qBGVjP7DO','Muhammad Al Fatih',NULL,4,'\0','\0','\0','\0','\0','','0000-00-00 00:00:00',NULL,NULL,''),('fc99@gmail.com','$2y$10$gixhjMg1YR4AHMG0hXQpM.Albq/SjHd353VJc2moA4g3qBGVjP7DO','Fan CHan',NULL,2,'\0','\0','\0','\0','\0','','0000-00-00 00:00:00',NULL,NULL,''),('user_tes@gmail.com','$2y$10$I0ngjPZgE9V4ivSoo9nDjeoucwGDle0.ZUOTJHbre3oJjK16O.apu','Tes User ',NULL,4,'\0','\0','\0','\0','\0','','0000-00-00 00:00:00',NULL,NULL,'');
+INSERT INTO `utl_user` VALUES ('admin','$2y$10$mfs2CWOcuff7.cQtm1Qq.uVckfLQQjiuehUPmp4QJqN7vjKfxFn0i','Admin Ganteng','Notes_210913_182216_5d1-750x5361.png',1,'\0','','\0','\0','\0','','0000-00-00 00:00:00','admin','2023-05-20 19:00:54',''),('chaniago','$2y$10$2vWqg89Fh6YWYsG.02/VzeZzUrWv4PWawCN9quhkLYv323hBS3iVq','tes',NULL,4,'\0','','\0','\0','\0','','0000-00-00 00:00:00',NULL,NULL,''),('fandy','$2y$10$I0ngjPZgE9V4ivSoo9nDjeoucwGDle0.ZUOTJHbre3oJjK16O.apu','Fandy Chaniago','istockphoto-1197250881-612x612.jpg',2,'\0','','\0','\0','\0','','0000-00-00 00:00:00','fandy','2023-05-21 01:22:55',''),('fatih99@gmail.com','$2y$10$gixhjMg1YR4AHMG0hXQpM.Albq/SjHd353VJc2moA4g3qBGVjP7DO','Muhammad Al Fatih',NULL,4,'\0','\0','\0','\0','\0','','0000-00-00 00:00:00',NULL,NULL,''),('fc99@gmail.com','$2y$10$gixhjMg1YR4AHMG0hXQpM.Albq/SjHd353VJc2moA4g3qBGVjP7DO','Fan CHan',NULL,2,'\0','\0','\0','\0','\0','','0000-00-00 00:00:00',NULL,NULL,''),('user_tes@gmail.com','$2y$10$I0ngjPZgE9V4ivSoo9nDjeoucwGDle0.ZUOTJHbre3oJjK16O.apu','Tes User ',NULL,4,'\0','\0','\0','\0','\0','','0000-00-00 00:00:00',NULL,NULL,'');
 /*!40000 ALTER TABLE `utl_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -587,6 +667,28 @@ SET character_set_client = utf8;
 SET character_set_client = @saved_cs_client;
 
 --
+-- Temporary table structure for view `vw_diagnosa`
+--
+
+DROP TABLE IF EXISTS `vw_diagnosa`;
+/*!50001 DROP VIEW IF EXISTS `vw_diagnosa`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE TABLE `vw_diagnosa` (
+  `id` tinyint NOT NULL,
+  `id_appointment` tinyint NOT NULL,
+  `userid` tinyint NOT NULL,
+  `date_consul` tinyint NOT NULL,
+  `diagnose` tinyint NOT NULL,
+  `recipe` tinyint NOT NULL,
+  `therapy` tinyint NOT NULL,
+  `created_by` tinyint NOT NULL,
+  `craeted_date` tinyint NOT NULL,
+  `nama_dokter` tinyint NOT NULL
+) ENGINE=MyISAM */;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Temporary table structure for view `vw_user`
 --
 
@@ -718,6 +820,25 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
+-- Final view structure for view `vw_diagnosa`
+--
+
+/*!50001 DROP TABLE IF EXISTS `vw_diagnosa`*/;
+/*!50001 DROP VIEW IF EXISTS `vw_diagnosa`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vw_diagnosa` AS select `a`.`id` AS `id`,`a`.`id_appointment` AS `id_appointment`,`a`.`userid` AS `userid`,`a`.`date_consul` AS `date_consul`,`a`.`diagnose` AS `diagnose`,`a`.`recipe` AS `recipe`,`a`.`therapy` AS `therapy`,`a`.`created_by` AS `created_by`,`a`.`craeted_date` AS `craeted_date`,concat('Dr. ',`b`.`NAME`,' , ',`b`.`gelar`) AS `nama_dokter` from (`utl_diagnosa_patient` `a` join `vw_user_doctor` `b` on(`a`.`created_by` = `b`.`user_id`)) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
 -- Final view structure for view `vw_user`
 --
 
@@ -783,4 +904,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-21  1:14:46
+-- Dump completed on 2023-05-21 22:14:57
