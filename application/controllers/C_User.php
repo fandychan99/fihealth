@@ -72,9 +72,14 @@ class C_User extends CI_Controller
 
     public function edit()
     {
+        
     }
 
     public function delete()
     {
+        $id = decrypt_url($this->input->get("id"));
+        $query = "DELETE FROM utl_user where userid = '$id'";
+
+        return $this->db->query($query);
     }
 }

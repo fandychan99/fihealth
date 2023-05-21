@@ -25,6 +25,11 @@
                     <label for="inputConfirmPassword2" class="col-form-label">Day*</label>
                     <!-- <input type="text" class="form-control" id="day" name="day" placeholder="user id" required> -->
                     <select name="day" id="day" class="form-control">
+                        <?php 
+                            if(!empty($sch_byid)){
+                                echo "<option value='$sch_byid->day'>$sch_byid->day</option>";
+                            }
+                        ?>
                         <option value="Sunday">Sunday</option>
                         <option value="Monday"> Monday</option>
                         <option value="Tuesday"> Tuesday</option>
@@ -37,12 +42,13 @@
 
                 <div class="row mb-3">
                     <label for="inputConfirmPassword2" class="col-form-label">Time Start*</label>
-                    <input type="text" class="form-control" id="time_start" name="time_start" placeholder="Enter time (24-hour format)" pattern="^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$" required>
+                    <input type="text" value="<?=!empty($sch_byid) ? date("H:i", strtotime($sch_byid->time_start)) :"" ?>" class="form-control" id="time_start" name="time_start" placeholder="Enter time (24-hour format)" pattern="^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$" required>
+                    <input type="text" class="form-control" id="id" name="id" value="<?=(!empty($this->input->get('id')) ? decrypt_url($this->input->get('id')) : 0 )?>" hidden>
                 </div>
 
                 <div class="row mb-3">
                     <label for="inputConfirmPassword2" class="col-form-label">Time End*</label>
-                    <input type="text" class="form-control" id="time_end" name="time_end" placeholder="Enter time (24-hour format)" pattern="^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$" required>
+                    <input type="text"  value="<?=!empty($sch_byid) ? date("H:i", strtotime($sch_byid->time_end)) :"" ?>" class="form-control" id="time_end" name="time_end" placeholder="Enter time (24-hour format)" pattern="^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$" required>
                 </div>
                 <div class="row">
                     <div class="col-sm-9">
@@ -74,11 +80,21 @@
                             <?php
 
                             foreach ($sch as $item) {
-                                echo "<tr>
-                                        <td>$item->day</td>
-                                        <td>$item->time_start - $item->time_end</td>
-                                        <td></td>
-                                    </tr>";
+                            ?>
+                                <tr>
+                                    <td><?=$item->day ?></td>
+                                    <td><?=$item->time_start; ?> - <?=$item->time_end ?></td>
+
+                                    <td>
+                                    <div class="d-flex align-items-center gap-3 fs-6">
+                                        <a class="text-warning" onclick="return confirm('Sure to Edit it ? ')" href="<?= base_url() ?>C_Schedule?id=<?= encrypt_url($item->id) ?>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Edit info" aria-label="Edit"><i class="bi bi-pencil-fill"></i></a>
+                                        <a class="text-danger" onclick="return confirm('Sure to Deleted it ? ')" href="<?= base_url() ?>C_Schedule/delete?id=<?= encrypt_url($item->id) ?>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Delete" aria-label="Delete"><i class="bi bi-trash-fill"></i></a>
+                                    </div>
+                                    </td>
+
+                                </tr>
+                            <?php
+
                             }
 
                             ?>

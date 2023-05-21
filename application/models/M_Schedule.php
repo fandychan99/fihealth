@@ -17,8 +17,21 @@ class M_Schedule extends CI_Model
         return $this->db->query($query)->result();
     }
 
-    function simpan($data){
-        return $this->db->insert("utl_jadwal_dokter", $data);
+    function get_schedule_byid($id){
+        
+        $query = "SELECT * FROM utl_jadwal_dokter where id = '$id'";
+        return $this->db->query($query)->row();
+    }
+
+
+    function simpan($data, $id){
+        if($id == 0){
+            return $this->db->insert("utl_jadwal_dokter", $data);
+        }else{
+            $this->db->where("id", $id);
+            return $this->db->update("utl_jadwal_dokter", $data);
+        }
+        
     }
 
 }
