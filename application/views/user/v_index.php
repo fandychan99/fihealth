@@ -1,3 +1,7 @@
+<?php
+$id = decrypt_url($this->input->get("id"));
+
+?>
 <!--breadcrumb-->
 <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
     <div class="breadcrumb-title pe-3">User Management</div>
@@ -16,39 +20,43 @@
     <div class="col-xl-4">
         <div class="card">
             <div class="border p-4 rounded">
-                <?= form_open(base_url("C_User/add"), 'id="formuser"'); ?>
+                <?= $id == "" ? form_open(base_url("C_User/add"), 'id="formuser"') : form_open(base_url("C_User/edit"), 'id="formuser"'); ?>
                 <div class="card-title d-flex align-items-center">
-                    <h5 class="mb-0">User Registration</h5>
-                    
+                    <h5 class="mb-0">User Registration </h5>
+
                 </div>
                 <hr />
                 <div class="row mb-3">
                     <label for="inputConfirmPassword2" class="col-form-label">User ID*</label>
-                    <input type="text" class="form-control" id="user_id" name="user_id" placeholder="user id" required>
+                    <input type="text" class="form-control" id="user_id" name="user_id" placeholder="user id" required <?= $id == "" ? "" : "readonly" ?> value="<?= !empty($userby) ? $userby->user_id : "" ?>">
                 </div>
 
                 <div class="row mb-3">
                     <label for="inputConfirmPassword2" class="col-form-label">Name*</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="full name" required>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="full name" required value="<?= !empty($userby) ? $userby->name : "" ?>">
                 </div>
 
                 <div class="row mb-3">
                     <label for="inputConfirmPassword2" class="col-form-label">Role*</label>
                     <?php
+                    $rl = !empty($userby) ? $userby->role_id : "";
                     $style_kategori = 'class="form-control" id="role" required';
-                    echo form_dropdown('role', $_role, '', $style_kategori);
+                    echo form_dropdown('role', $_role, $rl, $style_kategori);
                     ?>
 
                 </div>
 
-                <div class="row mb-3">
-                    <label for="inputConfirmPassword2" class="col-form-label">Password* <a onclick="show_password()"><i id="icon" class="bi bi-eye-slash"></i></a>
-                    </label>
-                    <input type="password" class="form-control" name="password" id="password" placeholder="password" minlength="8" pattern="(?=.*\d)(?=.*[A-Z])(?=.*[a-z]).*" required title="Gunakan Huruf Besar kecil angka serta simbol">
-
-
-                </div>
-
+                <?php
+                if (empty($userby)) {
+                ?>
+                    <div class="row mb-3">
+                        <label for="inputConfirmPassword2" class="col-form-label">Password* <a onclick="show_password()"><i id="icon" class="bi bi-eye-slash"></i></a>
+                        </label>
+                        <input type="password" class="form-control" name="password" id="password" placeholder="password" minlength="8" pattern="(?=.*\d)(?=.*[A-Z])(?=.*[a-z]).*" required title="Gunakan Huruf Besar kecil angka serta simbol">
+                    </div>
+                <?php
+                }
+                ?>
                 <div class="row mb-3" hidden>
                     <div class="col-sm-6">
                         <div class="form-check">
@@ -64,8 +72,17 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-9">
-                        <button type="submit" class="btn btn-primary px-5">Register</button>
+                    <div class="col-sm-12">
+                        <div class="d-flex align-items-center gap-3 fs-6">
+                        
+
+                        <button type="submit" class="btn btn-primary px-5"> <?= $id == "" ? "REGISTER" : "UPDATE" ?></button>
+                        <?php
+                        if (!empty($userby)) {
+                        ?>
+                            <a href="<?=base_url()?>C_User" class="btn btn-outline-danger"><i class="bi bi-plus"></i>Create New</a>
+                        <?php } ?>
+                        </div>
                     </div>
                 </div>
                 <?= form_close(); ?>
@@ -94,28 +111,29 @@
                         </thead>
                         <tbody>
                             <?php
-                                
-                                foreach ($_user as $item) {
-                                    $access = "";
-                                    $access = ($item->web_access == 1 ? $access.' WEB' : $access);
-                                    $access = ($item->android_access == 1 ? $access.' Android' : $access);
-                                    $status = ($item->is_nonactive ? 'NON AKTIVE' : ($item->is_locked ? 'AKUN DI KUNCI' : 'AKTIF'));
-                                    echo "<tr>
+
+                            foreach ($_user as $item) {
+                                $access = "";
+                                $access = ($item->web_access == 1 ? $access . ' WEB' : $access);
+                                $access = ($item->android_access == 1 ? $access . ' Android' : $access);
+                                $status = ($item->is_nonactive ? 'NON AKTIVE' : ($item->is_locked ? 'AKUN DI KUNCI' : 'AKTIF'));
+                                echo "<tr>
                                         <td>$item->user_id</td>
                                         <td>$item->name</td>
                                         <td>$item->role</td>
                                         <td>$access</td>
                                         <td>$status</td>";
-                                        
-                                    ?><td>
+
+                            ?><td>
                                     <div class="d-flex align-items-center gap-3 fs-6">
-                                        <!-- <a class="text-warning" onclick="return confirm('Sure to Edit it ? ')" href="<?= base_url() ?>C_User?id=<?= encrypt_url($item->user_id) ?>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Edit info" aria-label="Edit"><i class="bi bi-pencil-fill"></i></a> -->
+                                        <a class="text-warning" onclick="return confirm('Sure to Edit it ? ')" href="<?= base_url() ?>C_User?id=<?= encrypt_url($item->user_id) ?>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Edit info" aria-label="Edit"><i class="bi bi-pencil-fill"></i></a>
                                         <a class="text-danger" onclick="return confirm('Sure to Deleted it ? ')" href="<?= base_url() ?>C_User/delete?id=<?= encrypt_url($item->user_id) ?>" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Delete" aria-label="Delete"><i class="bi bi-trash-fill"></i></a>
-                                    </div></td>
-                                    <?php
-                                    echo "</tr>";
-                                }
-                            
+                                    </div>
+                                </td>
+                            <?php
+                                echo "</tr>";
+                            }
+
                             ?>
                         </tbody>
                     </table>

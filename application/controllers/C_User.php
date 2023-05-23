@@ -73,7 +73,24 @@ class C_User extends CI_Controller
 
     public function edit()
     {
-        
+        try {
+            $data =  array(
+                'user_id' => $this->input->post('user_id'),
+                'name' => $this->input->post('name'),
+                'role_id' => $this->input->post('role'),
+                'updated_by' => $this->session->userdata("userid")
+            );
+    
+            $hasil = $this->M_User->edit($data,  $this->input->post('user_id'));
+            if($hasil['status'] == 'success'){
+                echo json_encode(array('status' => 'success', 'msg' => 'Berhasil Update Data !'));
+            }
+            else{
+                echo json_encode(array('status' => 'error', 'msg' => $hasil['error']['message']));
+            }
+        } catch (\Exception $th) {
+            echo json_encode(array('status' => 'error', 'msg' => $th->getMessage() ));
+        }
     }
 
     public function delete()

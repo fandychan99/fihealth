@@ -17,6 +17,7 @@ class M_User extends CI_Model {
     }
 
     public function register($data){
+        
         if(!$this->db->insert($this->tbluser, $data)){
             return array("status" => "failed", "error" => $this->db->error());
         }else{
@@ -24,6 +25,16 @@ class M_User extends CI_Model {
             $role = $data["role_id"];
             $tbl = ($role == 2 ? "utl_user_doctor" : "utl_user_patient");
             $this->db->query("INSERT INTO $tbl (user_id) values ('$user_id')");
+            return array("status" => "success", "error" => "");
+        }
+
+    }
+
+    public function edit($data, $id){
+        $this->db->where("user_id", $id);
+        if(!$this->db->update($this->tbluser, $data)){
+            return array("status" => "failed", "error" => $this->db->error());
+        }else{
             return array("status" => "success", "error" => "");
         }
 
